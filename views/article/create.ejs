@@ -1,0 +1,66 @@
+<% include ../layouts/article/create/header.ejs %>
+
+<div class="grid" id="article-create">
+	<div class="unit w-1-1">
+		<form method="post">
+			<label for="title">Title</label><br>
+			<input type="hidden" name="id" id="id" value="<%= typeof formBody.id != 'undefined' && formBody.id || '' %>">
+			<input type="text" name="title" id="title" value="<%= typeof formBody.title != 'undefined' && formBody.title || '' %>"><br><br>
+			<label for="thumbnail">Thumbnail</label><br>
+			<input type="text" name="thumbnail" id="thumbnail" value="<%= typeof formBody.thumbnail != 'undefined' && formBody.thumbnail || '' %>"><br><br>
+			<label for="category">Category</label><br>
+			<div class="select">
+				<select name="category" id="category">
+					<%
+						function getCategoryRecursively (categories, parentKey, selectedCategory) {
+							for (categoryKey in categories) {
+
+								if (categories[categoryKey] == null) {
+									var optionValue = parentKey != null &&  categoriesTranslator.translate(parentKey) + mongoConfig.categoriesHierarchyDelimiter +  categoriesTranslator.translate(categoryKey) ||  categoriesTranslator.translate(categoryKey);
+
+					%>
+									<option value="<%= optionValue %>"
+					<%
+										if (selectedCategory == optionValue) {
+					%>
+											selected
+					<%
+										}
+					%>
+									>
+										<%= categoriesTranslator.translate(categoryKey) %>
+									</option>
+					<%
+								} else if (typeof categories[categoryKey] == "object") {
+									var optionValue = parentKey != null &&  categoriesTranslator.translate(parentKey) + mongoConfig.categoriesHierarchyDelimiter +  categoriesTranslator.translate(categoryKey) ||  categoriesTranslator.translate(categoryKey);
+					%>
+									<option value="<%= optionValue %>"
+					<%
+										if (selectedCategory == optionValue) {
+					%>
+											selected
+					<%
+										}
+					%>
+									>
+										<%= categoriesTranslator.translate(categoryKey) %>
+									</option>
+					<%
+									getCategoryRecursively(categories[categoryKey], categoryKey, selectedCategory);
+								}
+							}
+						}
+						getCategoryRecursively(categoriesStructure, null, formBody.category || '');
+					%>
+				</select>
+			</div>
+			<br><br>
+			<label for="content" class="margin-bottom-16">Content</label><br><br>
+			<textarea name="content" id="content" class="editable" cols="30" rows="10"></textarea>
+			<br>
+			<input type="submit" value="Create" class="button">
+		</form>
+	</div>
+</div>
+
+<% include ../layouts/article/create/footer.ejs %>

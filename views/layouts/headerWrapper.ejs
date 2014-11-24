@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<% if (typeof facebookShare!= 'undefined' && facebookShare) { %>
+		<meta property="og:url" content="<%= facebookShare.pageUrl %>" /> 
+		<meta property="og:title" content="<%= facebookShare.pageTitle %>" />
+		<meta property="og:description" content="<%= facebookShare.pageDescription %>" /> 
+		<meta property="og:image" content="<%= facebookShare.pageThumbnail %>" /> 
+	<% } %>
+	 
+	<title></title>
+</head>

@@ -1,0 +1,142 @@
+</head>
+<body>
+	
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&appId=1377222465898438&version=v2.0";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+
+	
+	<% if (typeof message == 'object' && message) { %>
+	<div><%= message %></div>
+	<% } %>
+	<div id="strapline" class="bottom-margin-8">
+		<div class="wrap">
+			<div class="grid">
+				<div class="unit-w-1-5 pull-right">
+					<ul id="auth-links" class="horizontal-list">
+						<li><a href="/auth/profile">Profile ></a>
+							<ul>
+								<li><a href="/article/create">Create Article</a></li>
+								<li><a href="/article/my-articles">My Articles</a></li>
+							</ul>
+						</li>
+						<li><a href="#">Login ></a>
+							<ul>
+								<li><a href="/auth/local-login">Local Login</a></li>
+								<li><a href="/auth/local-signup">Local Signup</a></li>
+								<li><a href="/auth/facebook-login">Facebook Login</a></li>
+								<li><a href="/auth/google-login">Google Login</a></li>
+								<!-- <li><a href="/auth/renren-login">RenRen Login</a></li> -->
+							</ul>
+						</li>
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="wrap">
+		<div class="grid">
+			<div class="unit w-1-1">
+				<div class="bottom-margin-8">
+					<a href="/" class="logo"><%- webFront.siteName %></a>
+				</div>
+			</div>
+		</div>
+		<div class="grid">
+			<div class="unit w-1-1">
+				<nav id="navigation-menus" class="bottom-margin-8">
+					<ul>
+						<li>
+							<a href="/category/movie">movie</a>
+						</li>
+						<li>
+							<a href="/category/life">life 》</a>
+							<ul>
+								<li>
+									<a href="/category/life/food">food</a>
+								</li>
+								<li>
+									<a href="/category/life/心理">psychology</a>
+								</li>
+								<li>
+									<a href="/category/life/健康">health</a>
+								</li>
+								<li>
+									<a href="/category/life/时尚">fashion</a>
+								</li>
+								<li>
+									<a href="/category/life/爱情">love</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="/category/entertainment">entertainment</a>
+						</li>
+						<li>
+							<a href="/category/funny">funny</a>
+						</li>
+						<li>
+							<a href="/category/touching">touching</a>
+						</li>
+						<li>
+							<a href="/category/animal">animal</a>
+						</li>
+						<li>
+							<a href="/category/amazing">amazing 》</a>
+							<ul>
+								<li>
+									<a href="/category/amazing/地球">earth</a>
+								</li>
+								<li>
+									<a href="/category/amazing/社会">society</a>
+								</li>
+								<li>
+									<a href="/category/amazing/历史">history</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="/category/art">art 》</a>
+							<ul>
+								<li>
+									<a href="/category/art/building">building</a>
+								</li>
+								<li>
+									<a href="/category/art/design">design</a>
+								</li>
+								<li>
+									<a href="/category/art/photography">photography</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="/category/performance">performance 》</a>
+							<ul>
+								<li>
+									<a href="/category/performance/music">music</a>
+								</li>
+								<li>
+									<a href="/category/performance/dancing">dancing</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="/category/news">news</a>
+						</li>
+						<li>
+							<a href="/category/tourism">tourism</a>
+						</li>
+						<li>
+							<a href="/category/girls">girls</a>
+						</li>
+						
+					</ul>
+				</nav>
+			</div>
+		</div>
